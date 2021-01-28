@@ -44,7 +44,7 @@ const fetchLatestVersion = () => {
   })
 }
 
-const upToDate = async (skip = false) => {
+const upToDate = async (skip = true) => {
   if (process.env.LNG_AUTO_UPDATE !== undefined) {
     skip = process.env.LNG_AUTO_UPDATE === 'false' ? true : false
   }
