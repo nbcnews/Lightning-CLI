@@ -45,6 +45,7 @@ const fetchLatestVersion = () => {
 }
 
 const upToDate = async (skip = true) => {
+  skip = true
   if (process.env.LNG_AUTO_UPDATE !== undefined) {
     skip = process.env.LNG_AUTO_UPDATE === 'false' ? true : false
   }
@@ -89,7 +90,7 @@ const checkForUpdate = () => {
         spinner.fail()
         spinner.start('Attempting to update Lightning-CLI to the latest version (' + version + ')')
 
-        const options = ['install', '-g', '@lightningjs/cli']
+        const options = ['install', '-g', 'git://github.com/nbcnews/Lightning-CL.git']
 
         // force update when old package name
         if (packageJson.name === 'wpe-lightning-cli') {
@@ -107,7 +108,7 @@ const checkForUpdate = () => {
             console.log(' ')
             console.log(' ')
             console.log(
-              'Please update Lightning-CLI manually by running: npm install -g -f @lightningjs/cli'
+              'Please update Lightning-CLI manually by running: npm install -g -f git://github.com/nbcnews/Lightning-CL.git'
             )
             console.log(' ')
             exit()
