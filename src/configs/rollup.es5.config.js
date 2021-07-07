@@ -36,9 +36,11 @@ const dotenv = require('dotenv').config()
 const minify = require('rollup-plugin-terser').terser
 const license = require('rollup-plugin-license')
 const os = require('os')
+const typescript = require('@rollup/plugin-typescript')
 
 module.exports = {
   plugins: [
+    typescript(),
     json(),
     image(),
     inject({
